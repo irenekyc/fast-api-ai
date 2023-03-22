@@ -17,7 +17,7 @@ gunicorn==20.1.0
 h11==0.14.0
 huggingface-hub==0.13.2
 idna==3.4
-langchain==0.0.40
+langchain==0.0.119
 llama-index==0.4.29
 lxml==4.9.2
 marshmallow==3.19.0
