@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import openai
 import os
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 openai.api_key = os.environ.get("OPEN_AI_API") 
@@ -17,6 +18,12 @@ class Prompt(BaseModel):
     withBoundary: bool
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 def home():
