@@ -53,6 +53,7 @@ def request_response(prompt: Prompt):
         
         category = chat_dict['question2'].lower()
         is_asked_about_manifest = chat_dict['question3']
+        is_about_retirement = chat_dict['question1']
         if (category == 'greetings'):
             print('greetings')
             templated_response = 'Hi, My name is Katie, retirement concierge in Manifest. How can I help you today?'
