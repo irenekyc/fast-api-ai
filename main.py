@@ -75,7 +75,7 @@ def request_response(prompt: Prompt):
 
     else:      
         index = GPTSimpleVectorIndex.load_from_disk(prompt.indexName)
-        boundary_text = 'You can answer who you are. Answer this question, but only use the specific piece of information. However, If there is no information in the context, simply answer I do not have enough information to answer your question. ' if prompt.withBoundary else ''
+        boundary_text = 'Answer this question, but only use the specific piece of information. If there is no information in the context, simply answer "I do not have enough information to answer your question." ' if prompt.withBoundary else ''
         query_response = bot_role + boundary_text + prompt.prompt
         response = index.query(query_response)
         templated_response = response.response
