@@ -14,19 +14,19 @@ num_outputs = 256
 # set maximum chunk overlap
 max_chunk_overlap = 20
 # set chunk size limit
-chunk_size_limit = 1500
+chunk_size_limit = 2000
 # set temperature
 # https://algowriting.medium.com/gpt-3-temperature-setting-101-41200ff0d0be
-temperature=0.3
+temperature=0.1
 
 
 def create_index():
-    documents = SimpleDirectoryReader("./vanguard-txt").load_data()
+    documents = SimpleDirectoryReader("./advice-1").load_data()
     print(documents)
     llm_predictor = LLMPredictor(llm=OpenAI(temperature=temperature, model_name="gpt-3.5-turbo", max_tokens=num_outputs))
     prompt_helper = PromptHelper(max_input_size, num_outputs, max_chunk_overlap, chunk_size_limit=chunk_size_limit)
     index = GPTSimpleVectorIndex(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
-    index.save_to_disk('./vanguard-0605--txt--chunk-size--1500.json')  
+    index.save_to_disk('./advice-index-1.json')  
     # 6106 tokens
     
 # vanguard = 71966 tokens = 0.03 USD
