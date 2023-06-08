@@ -46,10 +46,10 @@ def request_response(prompt: Prompt):
     is_followup = prompt.isFollowup
     
     if is_followup:
-        index   = GPTSimpleVectorIndex.load_from_disk(advice_index_name)
-        followup_prompt = 'You are answering the following question based on the context user give"' + prompt.prompt
+        index   = GPTSimpleVectorIndex.load_from_disk('advice-index-1-plain-text.json')
+        followup_prompt = 'You are answering the following question based on the context user give"' + prompt.prompt + 'Please elaborate your answer with a bit details. Thank you!'
         response = index.query(followup_prompt).response
-        templated_response = 'Based on the information you provided. Here are my advice. ' + response
+        templated_response = 'Based on the information you provided. Here are my advice. ' + response + ' Again, you are recommended to consult with a professional.'
         return {"prompt": prompt.prompt, "response": templated_response, "category": category, "is_about_retirement": is_about_retirement, "is_asked_about_manifest": is_asked_about_manifest, "is_asked_about_employer_retirement_plan": is_asked_about_employer_retirement_plan, "is_greetings": is_greetings, "is_seeking_advice": is_seeking_advice, "followup_questions":followup_questions}
 
         

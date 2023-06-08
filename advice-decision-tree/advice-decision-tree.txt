@@ -39,24 +39,27 @@ There are two follow-up questions to ask user related to what is my risk toleran
 1. If you had $20,000 to invest for a 10 year period, which portfolio would you prefer?
 2. Let's say your total retirement savings portfolio declines in value by 15% in one year. When you selected this portfolio, you believed it was the most appropriate for your retirement funding needs. Which of the following are you more likely to do?
 
-If you prefer low risk and low return and avoid short-term risk, you are a Conservative Investor. Conservative investors are willing to accept little to no volatility in their investment portfolios. Retirees or those close to retirement age are often included in this category as they may be unwilling to risk a loss to their principal investment and have a short-term investment strategy.
-A conservative investor targets vehicles that are guaranteed and highly liquid. Risk-averse individuals commonly opt for bank certificates of deposit (CDs), money markets, or U.S. Treasuries for income and preservation of capital.
+There are two questions to classify your risk tolerance. 
+AA - Conservative Risk Tolerance
+AB - Moderate Risk Tolerance
+BA - Conservative Risk Tolerance
+BB - Moderate Risk Tolerance
+CA - Conservative Risk Tolerance
+CB - Aggressive Risk Tolerance
+DA - Conservative Risk Tolerance
+DB - Aggressive Risk Tolerance
 
-If you prefer low risk and low return and are willing to accept short-term risk, you are a Moderate Investor. Moderate investors want to grow their money without losing too much. Their goal is to weigh opportunities and risks and this investor's approach is sometimes described as a “balanced” strategy.
+
+
+Aggressive Risk Tolerance
+An aggressive investor, or one with a high-risk tolerance, is willing to risk losing money to get potentially better results.1 Aggressive investors tend to be market-savvy with an understanding of the volatility of securities and follow strategies for achieving higher than average returns.
+Their investments emphasize capital appreciation rather than income or preserving their principal investment. This investor's asset allocation commonly includes stocks and little or no allocation to bonds or cash.
+
+Moderate Risk Tolerance
+Moderate investors want to grow their money without losing too much. Their goal is to weigh opportunities and risks and this investor's approach is sometimes described as a “balanced” strategy.
 Commonly, moderate investors develop a portfolio that includes a mixture of stocks and bonds, perhaps as a 50/50 or 60/40 structure.2
 
-If you prefer Some risk and medium return and avoid short-term risk, you are a Conservative Investor. Conservative investors are willing to accept little to no volatility in their investment portfolios. Retirees or those close to retirement age are often included in this category as they may be unwilling to risk a loss to their principal investment and have a short-term investment strategy.
+Conservative Risk Tolerance
+Conservative investors are willing to accept little to no volatility in their investment portfolios. Retirees or those close to retirement age are often included in this category as they may be unwilling to risk a loss to their principal investment and have a short-term investment strategy.
 A conservative investor targets vehicles that are guaranteed and highly liquid. Risk-averse individuals commonly opt for bank certificates of deposit (CDs), money markets, or U.S. Treasuries for income and preservation of capital.
 
-If you prefer Some risk and medium return and are willing to accept short-term risk, you are a Moderate Investor. Moderate investors want to grow their money without losing too much. Their goal is to weigh opportunities and risks and this investor's approach is sometimes described as a “balanced” strategy.
-Commonly, moderate investors develop a portfolio that includes a mixture of stocks and bonds, perhaps as a 50/50 or 60/40 structure.2
-
-If you prefer Higher risk and high return and avoid short-term risk, you are a Conservative Investor. Conservative investors are willing to accept little to no volatility in their investment portfolios. Retirees or those close to retirement age are often included in this category as they may be unwilling to risk a loss to their principal investment and have a short-term investment strategy.
-A conservative investor targets vehicles that are guaranteed and highly liquid. Risk-averse individuals commonly opt for bank certificates of deposit (CDs), money markets, or U.S. Treasuries for income and preservation of capital.
-
-If you prefer Higher risk and high return and are willing to accept short-term risk, you are a Aggressive investors. An aggressive investor, or one with a high-risk tolerance, is willing to risk losing money to get potentially better results.1 Aggressive investors tend to be market-savvy with an understanding of the volatility of securities and follow strategies for achieving higher than average returns. Their investments emphasize capital appreciation rather than income or preserving their principal investment. This investor's asset allocation commonly includes stocks and little or no allocation to bonds or cash.
-
-If you prefer Highest risk and highest return and avoid short-term risk, you are a Conservative Investor. Conservative investors are willing to accept little to no volatility in their investment portfolios. Retirees or those close to retirement age are often included in this category as they may be unwilling to risk a loss to their principal investment and have a short-term investment strategy.
-A conservative investor targets vehicles that are guaranteed and highly liquid. Risk-averse individuals commonly opt for bank certificates of deposit (CDs), money markets, or U.S. Treasuries for income and preservation of capital.
-
-If you prefer Highest risk and highest return and are willing to accept short-term risk, you are a Aggressive investors. An aggressive investor, or one with a high-risk tolerance, is willing to risk losing money to get potentially better results.1 Aggressive investors tend to be market-savvy with an understanding of the volatility of securities and follow strategies for achieving higher than average returns. Their investments emphasize capital appreciation rather than income or preserving their principal investment. This investor's asset allocation commonly includes stocks and little or no allocation to bonds or cash.
