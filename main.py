@@ -42,7 +42,9 @@ def home():
 def employer_plan(prompt: EmployerPrompt):
     templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
     employer = prompt.userEmployer
-    if employer not in employers:
+    if employer == "":
+        templated_response = "Please login to as an employee to proceed"
+    elif employer not in employers:
         templated_response = 'Sorry, I do not have information about ' + employer + ' retirement plan'
     else:
         employer_prompt = 'User is asking about the employer retirement plan details, please only refer to the information within the context. User is from ' + employer + '. User is asking "' + prompt.prompt + 'within their plan. Please do not make up answer. Please make the answer more conversational and easy to read. If there is no information within the context, please answer "I am sorry, but I do not have enough information to answer your question". Thank you!'   
