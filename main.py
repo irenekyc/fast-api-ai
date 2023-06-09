@@ -11,7 +11,7 @@ load_dotenv()
 openai.api_key = os.environ.get("OPEN_AI_API") 
 os.environ["OPENAI_API_KEY"] = os.environ.get("OPEN_AI_API")
 
-employers = ['manifest', 'brose']
+employers = ['manifest', 'university-of-chicago']
 knowledge_index_name = 'knowledge-index.json'
 advice_index_name = 'advice-index-1.json'
 
@@ -20,6 +20,11 @@ class Prompt(BaseModel):
     username: str
     userEmployer: str
     isFollowup:bool
+
+class EmployerPrompt(BaseModel):
+    prompt: str
+    userEmployer: str
+    indexName: str
 
 app = FastAPI()
 app.add_middleware(
@@ -32,6 +37,24 @@ app.add_middleware(
 @app.get("/")
 def home():
     return {"message":"Welcome"}
+
+@app.post("/employer-plan")
+def employer_plan(prompt: EmployerPrompt):
+    templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
+    employer = prompt.userEmployer
+    if employer not in employers:
+        templated_response = 'Sorry, I do not have information about ' + employer + ' retirement plan'
+    else:
+        employer_prompt = 'User is asking about the employer retirement plan details, please only refer to the information within the context. User is from ' + employer + '. User is asking "' + prompt.prompt + 'within their plan. Please do not make up answer. Please make the answer more conversational and easy to read. If there is no information within the context, please answer "I am sorry, but I do not have enough information to answer your question". Thank you!'   
+        index = GPTSimpleVectorIndex.load_from_disk(prompt.indexName)
+        response = index.query(employer_prompt)
+        templated_response = response.response
+    return {
+        "prompt": prompt.prompt,
+        "response": templated_response,
+        "has_response":False if 'I am sorry, but I do not have enough information to answer your question' in templated_response else True
+    }
+    
 
 @app.post("/request-response")
 def request_response(prompt: Prompt):
