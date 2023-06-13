@@ -83,7 +83,7 @@ def request_response_investment_with_info(prompt:Version3Prompt):
     templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
     index_name = 'advice-index-1-plain-text.json'
     index = GPTSimpleVectorIndex.load_from_disk(index_name)
-    manifest_prompt = 'Answer this question:' + prompt.prompt + '. Please only refer to the information within the context. Please answer "I am sorry, but I do not have enough information to answer your question" if there is no information within the context to answer user question.'
+    manifest_prompt = 'Answer this question:' + prompt.prompt 
     response = index.query(manifest_prompt)
     templated_response = response.response
     
