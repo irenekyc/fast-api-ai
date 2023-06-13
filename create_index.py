@@ -21,12 +21,12 @@ temperature=0.1
 
 
 def create_index():
-    documents = SimpleDirectoryReader("./employer-manifest").load_data()
+    documents = SimpleDirectoryReader("./retirement-accounts").load_data()
     print(documents)
     llm_predictor = LLMPredictor(llm=OpenAI(temperature=temperature, model_name="gpt-3.5-turbo", max_tokens=num_outputs))
     prompt_helper = PromptHelper(max_input_size, num_outputs, max_chunk_overlap, chunk_size_limit=chunk_size_limit)
     index = GPTSimpleVectorIndex(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
-    index.save_to_disk('./employer-manifest.json')  
+    index.save_to_disk('./retirement-accounts-index.json')  
     # 6106 tokens
     
 # vanguard = 71966 tokens = 0.03 USD

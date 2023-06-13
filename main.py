@@ -26,6 +26,13 @@ class EmployerPrompt(BaseModel):
     userEmployer: str
     indexName: str
 
+class ManifestPrompt(BaseModel):
+    prompt:str
+    
+class Version3Prompt(BaseModel):
+    prompt: str
+    
+
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -57,7 +64,65 @@ def employer_plan(prompt: EmployerPrompt):
         "has_response":False if 'I am sorry, but I do not have enough information to answer your question' in templated_response else True
     }
     
+@app.post('/request-manifest-info')
+def request_manifest_info(prompt:ManifestPrompt):
+    templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
+    index_name = 'manifest-index.json'
+    index = GPTSimpleVectorIndex.load_from_disk(index_name)
+    manifest_prompt = 'Answer this question:' + prompt.prompt + '. Please only refer to the information within the context. Please answer "I am sorry, but I do not have enough information to answer your question" if there is no information within the context to answer user question.'
+    response = index.query(manifest_prompt)
+    templated_response = response.response
+    return {
+        "prompt": prompt.prompt,
+        "response": templated_response,
+        "has_response":False if 'I am sorry, but I do not have enough information to answer your question' in templated_response else True,
+    }
 
+@app.post('/request-investment-advice')
+def request_response_investment_with_info(prompt:Version3Prompt):
+    templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
+    index_name = 'advice-index-1-plain-text.json'
+    index = GPTSimpleVectorIndex.load_from_disk(index_name)
+    manifest_prompt = 'Answer this question:' + prompt.prompt + '. Please only refer to the information within the context. Please answer "I am sorry, but I do not have enough information to answer your question" if there is no information within the context to answer user question.'
+    response = index.query(manifest_prompt)
+    templated_response = response.response
+    
+    return{
+        "prompt": prompt.prompt,
+        "response": templated_response,
+        "has_response":False if 'I am sorry, but I do not have enough information to answer your question' in templated_response else True,
+
+            }
+
+@app.post('/request-retirement-account')
+def request_response_account_with_info(prompt:Version3Prompt):
+    templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
+    index_name = 'retirement-accounts-index.json'
+    index = GPTSimpleVectorIndex.load_from_disk(index_name)
+    
+    response = index.query(prompt.prompt)
+    templated_response = response.response
+    
+    return{
+        "prompt": prompt.prompt,
+        "response": templated_response,
+        "has_response":False if 'I am sorry, but I do not have enough information to answer your question' in templated_response else True
+            }
+    
+@app.post('/request-retirement-planning')
+def request_response_retirement_planning(prompt:Version3Prompt):
+    templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
+    index_name = 'advice-index-1-plain-text.json'
+    index = GPTSimpleVectorIndex.load_from_disk(index_name)
+    manifest_prompt = 'Answer this question .' + prompt.prompt 
+    response = index.query(manifest_prompt)
+    templated_response = response.response
+    return {
+        "prompt": prompt.prompt,
+        "response": templated_response,
+        "has_response":False if 'I am sorry, but I do not have enough information to answer your question' in templated_response else True
+    }
+    
 @app.post("/request-response")
 def request_response(prompt: Prompt):
     templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
