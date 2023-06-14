@@ -1,8 +1,6 @@
-How much should one contribute to 401k account? 
+How much should I contribute to 401k account? 
 If you have a 401(k) plan, you should contribute enough from each paycheck to take advantage of any match that your employer offers. Otherwise, you are losing out on part of your compensation and leaving free money on the table.
 How much to put in your 401(k) is going to depend on your individual retirement goals, existing resources, lifestyle, and family decisions. A common rule of thumb, though, is to set aside at least 10% of your gross earnings as a start.
-
-There is one follow-up question to ask user related to how much should one contribute to 401k account to provide better advice: How old are you?
 
 Options for answers depending on age:
 30 and below
@@ -30,33 +28,54 @@ If you are 60 years old or above, your total savings total goal is 10 times the 
 Most financial advisors agree that 10% to 20% of your salary is a good amount to contribute toward your retirement fund.
 In any case, if your company offers a 401(k) matching contribution, you should put in at least enough to get the maximum amount. A typical match might be 3% of your salary or 50% of the first 6% of the employee contribution.
 
+There is one follow-up question to ask user related to how much should I contribute to 401k account: How old are you?
+There is no follow-up action to prompt user related to how much should I contribute to 401k account
 
-What is my risk tolerance?
-All investments involve some degree of risk and knowing their risk tolerance level helps investors plan their entire portfolio, determining how they invest. Based on how much risk they can tolerate, investors are classified as aggressive, moderate, and conservative.
-Risk tolerance assessments are available online, including risk-related surveys or questionnaires. An investor may also want to review historical returns for different asset classes to determine the volatility of the various financial instruments. 
+What should I do with my old retirement account?
+There are four options you should do with your old retirement account. 
+1. Transfer to an IRA. You can sign up for an IRA with a provider of your choice. Depending on the provider, they might have rollover service available online or you could contact the provider to have them handle for you.
+2. Transfer to your current 401k. If you have a new employer retirement account set up, you can choose to rollover to your current plan.
+3. Depending on the old account balance and your old account plan rules, you might be able to leave the plan as it is.
+4. You can cash out the old account balance, however early penalty and fees might apply. 
 
-There are two follow-up questions to ask user related to what is my risk tolerance?
-1. If you had $20,000 to invest for a 10 year period, which portfolio would you prefer?
-2. Let's say your total retirement savings portfolio declines in value by 15% in one year. When you selected this portfolio, you believed it was the most appropriate for your retirement funding needs. Which of the following are you more likely to do?
+There is no follow-up question to ask user related to the question What should I do with my old retirement account?
+There is one follow-up action to prompt user related to the question What should I do with my old retirement account?: Account rollover
 
-If you prefer low risk and low return and avoid short-term risk, you are a Conservative Investor. Conservative investors are willing to accept little to no volatility in their investment portfolios. Retirees or those close to retirement age are often included in this category as they may be unwilling to risk a loss to their principal investment and have a short-term investment strategy.
-A conservative investor targets vehicles that are guaranteed and highly liquid. Risk-averse individuals commonly opt for bank certificates of deposit (CDs), money markets, or U.S. Treasuries for income and preservation of capital.
+How does account rollover work?
+There are two types of rollover: Direct and Indirect rollover.
+Direct rollover means your funds are transferred directly from your old account to your new account.
+Indirect rollover means you receive a check from an old retirement account and deposit it into the new account. You generally have 60 days to do this, or you risk triggering a big tax bill.
 
-If you prefer low risk and low return and are willing to accept short-term risk, you are a Moderate Investor. Moderate investors want to grow their money without losing too much. Their goal is to weigh opportunities and risks and this investor's approach is sometimes described as a “balanced” strategy.
-Commonly, moderate investors develop a portfolio that includes a mixture of stocks and bonds, perhaps as a 50/50 or 60/40 structure.2
+There is no follow-up question to ask user related to the question How does account rollover work?
+There is one follow-up action to prompt user related to the question How does account rollover work: Account rollover
 
-If you prefer Some risk and medium return and avoid short-term risk, you are a Conservative Investor. Conservative investors are willing to accept little to no volatility in their investment portfolios. Retirees or those close to retirement age are often included in this category as they may be unwilling to risk a loss to their principal investment and have a short-term investment strategy.
-A conservative investor targets vehicles that are guaranteed and highly liquid. Risk-averse individuals commonly opt for bank certificates of deposit (CDs), money markets, or U.S. Treasuries for income and preservation of capital.
+Can I rollover my old 401k to a Roth IRA?
+If you have a traditional 401(k) or 403(b), you can roll over your money into a Roth IRA. However, this would be considered a "Roth conversion," so you'd have to report the money as income at tax time and pay ordinary income tax on it.
 
-If you prefer Some risk and medium return and are willing to accept short-term risk, you are a Moderate Investor. Moderate investors want to grow their money without losing too much. Their goal is to weigh opportunities and risks and this investor's approach is sometimes described as a “balanced” strategy.
-Commonly, moderate investors develop a portfolio that includes a mixture of stocks and bonds, perhaps as a 50/50 or 60/40 structure.2
+There is no follow-up question to ask user related to the question Can I rollover my old 401k to a Roth IRA?
+There is one follow-up action to prompt user related to the question Can I rollover my old 401k to a Roth IRA?: Account rollover
 
-If you prefer Higher risk and high return and avoid short-term risk, you are a Conservative Investor. Conservative investors are willing to accept little to no volatility in their investment portfolios. Retirees or those close to retirement age are often included in this category as they may be unwilling to risk a loss to their principal investment and have a short-term investment strategy.
-A conservative investor targets vehicles that are guaranteed and highly liquid. Risk-averse individuals commonly opt for bank certificates of deposit (CDs), money markets, or U.S. Treasuries for income and preservation of capital.
+Can I rollover my old retirement account to an IRA?
+Absolutely, if you're switching jobs or retiring, rolling over your 401(k) to a Traditional IRA may give you more flexibility in managing your savings. Traditional IRAs are tax-deferred retirement accounts.
 
-If you prefer Higher risk and high return and are willing to accept short-term risk, you are a Aggressive investors. An aggressive investor, or one with a high-risk tolerance, is willing to risk losing money to get potentially better results.1 Aggressive investors tend to be market-savvy with an understanding of the volatility of securities and follow strategies for achieving higher than average returns. Their investments emphasize capital appreciation rather than income or preserving their principal investment. This investor's asset allocation commonly includes stocks and little or no allocation to bonds or cash.
+There is no follow-up question to ask user related to the question Can I rollover my old retirement account to an IRA?
+There is one follow-up action to prompt user related to the question Can I rollover my old retirement account to an IRA?: Account rollover
 
-If you prefer Highest risk and highest return and avoid short-term risk, you are a Conservative Investor. Conservative investors are willing to accept little to no volatility in their investment portfolios. Retirees or those close to retirement age are often included in this category as they may be unwilling to risk a loss to their principal investment and have a short-term investment strategy.
-A conservative investor targets vehicles that are guaranteed and highly liquid. Risk-averse individuals commonly opt for bank certificates of deposit (CDs), money markets, or U.S. Treasuries for income and preservation of capital.
+Are there any minimum contribution percentage or amount I need to contribute to my 401k account?
+There is no minimum amount you are required to contribute to your 401(k).
 
-If you prefer Highest risk and highest return and are willing to accept short-term risk, you are a Aggressive investors. An aggressive investor, or one with a high-risk tolerance, is willing to risk losing money to get potentially better results.1 Aggressive investors tend to be market-savvy with an understanding of the volatility of securities and follow strategies for achieving higher than average returns. Their investments emphasize capital appreciation rather than income or preserving their principal investment. This investor's asset allocation commonly includes stocks and little or no allocation to bonds or cash.
+There is no follow-up question to ask user related to the question Are there any minimum contribution percentage or amount I need to contribute to my 401k account?
+There is one follow-up action to prompt user related to the question Are there any minimum contribution percentage or amount I need to contribute to my 401k account?: Maximize retirement saving
+
+Are there any maximum contribution percentage or amount I am allowed to contribute to my 401k account?
+The limit on employee elective deferrals (for traditional and safe harbor plans) is: $22,500 in 2023 ($20,500 in 2022, $19,500 in 2021 and 2020; and $19,000 in 2019), subject to cost-of-living adjustments.
+
+There is no follow-up question to ask user related to the question Are there any maximum contribution percentage or amount I am allowed to contribute to my 401k account?
+There is one follow-up action to prompt user related to the question Are there any maximum contribution percentage or amount I am allowed to contribute to my 401k account?: Maximize retirement saving
+
+Should I open Roth IRA or Traditional IRA?
+Two main questions to consider while choosing Roth IRA or Traditional IRA are the income limit and tax preference. First, there is income limitation for Roth IRA contribution, not every one is eligible to open and contribute to Roth IRA. In 2023, the income limit for single filer is $138,000, married and filled jointly is $218,000. 
+Second, when your income is lower than the set limit, you should also consider the difference in tax benefits between two accounts. If you prefer paying tax now and enjoy tax-free withdrawal when you retire, Roth maybe better, but if you prefer enjoy tax-free contribution now, you might choose Traditional IRA.
+
+There is no follow-up question to ask user related to the question Should I open Roth IRA or Tradition IRA
+There is no follow-up action to prompt user related to the question Should I open Roth IRA or Tradition IRA

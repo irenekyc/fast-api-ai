@@ -45,6 +45,15 @@ app.add_middleware(
 def home():
     return {"message":"Welcome"}
 
+@app.post('/request-response-v4')
+def request_response_v4(prompt: ManifestPrompt):
+    templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
+    prompt = 'You are Katie, retirement concierge in Manifest. You are here to empower user to make informed decision. Answer three questions. 1. '+ prompt.prompt + ' 2. In the context, is there any follow-up questions to ask user related to '+ prompt.prompt + '? If yes, what is it? 3. In the context, is there any follow-up actions to prompt user related to ' + prompt.prompt +', if yes, what is it?. Please format the answer in json format. {"question1": answer, "question2": format followup question in array, if there is no followup question, provide empty array, "question3": format followup action in array, if there is no followup action, provide empty array}. Please only refer to the information within the context. Please answer "I am sorry, but I do not have enough information to answer your question" if there is no information within the context to answer user question.' 
+    index = GPTSimpleVectorIndex.load_from_disk('library-1.json')
+    response = index.query(prompt)
+    templated_response = response.response
+    print(templated_response)
+
 @app.post("/employer-plan")
 def employer_plan(prompt: EmployerPrompt):
     templated_response = 'Sorry, I do not understand your question. Please rephrase your question.'
