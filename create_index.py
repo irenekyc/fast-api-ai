@@ -1,34 +1,36 @@
-from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader, LLMPredictor, PromptHelper
-from langchain.document_loaders import PyPDFLoader,UnstructuredPDFLoader
-from langchain import OpenAI
+from langchain.text_splitter import  RecursiveCharacterTextSplitter
+from langchain.document_loaders import PyPDFLoader
 from dotenv import load_dotenv
 import os
+from langchain.embeddings import OpenAIEmbeddings # for creating embeddings
+from langchain.vectorstores import Pinecone
+import openai
+import pinecone
+
 
 load_dotenv()
+# Initialize packages
 os.environ["OPENAI_API_KEY"] = os.environ.get("OPEN_AI_API")
+openai.api_key = os.environ.get("OPEN_AI_API")
+pinecone.init(api_key=os.environ.get("PINECONE_API"), environment='us-central1-gcp')
 
-# set maximum input size
-max_input_size = 4096
-# set number of output tokens
-num_outputs = 256
-# set maximum chunk overlap
-max_chunk_overlap = 20
-# set chunk size limit
-chunk_size_limit = 2000
-# set temperature
-# https://algowriting.medium.com/gpt-3-temperature-setting-101-41200ff0d0be
-temperature=0.1
+EMBEDDING_MODEL = 'text-embedding-ada-002'
+embeddings = OpenAIEmbeddings(openai_api_key=os.environ.get("OPEN_AI_API"), model=EMBEDDING_MODEL)
+index_name = 'manifest-index'
 
 
-def create_index():
-    documents = SimpleDirectoryReader("./advice-1").load_data()
-    print(documents)
-    llm_predictor = LLMPredictor(llm=OpenAI(temperature=temperature, model_name="gpt-3.5-turbo", max_tokens=num_outputs))
-    prompt_helper = PromptHelper(max_input_size, num_outputs, max_chunk_overlap, chunk_size_limit=chunk_size_limit)
-    index = GPTSimpleVectorIndex(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
-    index.save_to_disk('./library-1.json')  
-    # 6106 tokens
+def create_pinecone_index():
+    #Load pdf
+    documents = PyPDFLoader('testing-data-v5.pdf').load()
+
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+    doc_texts = text_splitter.split_documents(documents=documents)
+
+    # if the index already exists, update it
+    index = Pinecone.from_existing_index(index_name, embedding=embeddings)
     
-# vanguard = 71966 tokens = 0.03 USD
-        
-create_index()
+    index.add_texts([d.page_content for d in doc_texts])
+
+    # create index
+    # Pinecone.from_texts([d.page_content for d in doc_texts], embedding=embeddings, index_name=index_name)
+ 
