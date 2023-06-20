@@ -14,7 +14,7 @@ os.environ["OPENAI_API_KEY"] = os.environ.get("OPEN_AI_API")
 openai.api_key = os.environ.get("OPEN_AI_API")
 pinecone.init(api_key=os.environ.get("PINECONE_API"), environment='us-central1-gcp')
 
-EMBEDDING_MODEL = 'text-embedding-ada-002'
+EMBEDDING_MODEL = 'gpt-3.5-turbo'
 embeddings = OpenAIEmbeddings(openai_api_key=os.environ.get("OPEN_AI_API"), model=EMBEDDING_MODEL)
 index_name = 'manifest-index'
 
@@ -36,4 +36,3 @@ def create_pinecone_index():
     Pinecone.from_texts([d.page_content for d in doc_texts], embedding=embeddings, index_name=index_name)
     
 
- 
