@@ -57,11 +57,12 @@ def home():
 @app.post('/getKatieResponse')
 def get_katie_response(prompt: Version5Prompt):
     index = Pinecone.from_existing_index(index_name, embedding=embeddings)
-    res = index.similarity_search_with_score(query=prompt.prompt, k=2)
+    res = index.similarity_search_with_score(query=prompt.prompt, k=1)
     score = res[0][1]
 
-    # Only when score is greater than 0.85, we will use the retrieval QA model
-    if (score < 0.85):
+    print(res)
+    # Only when score is greater than 0.81, we will use the retrieval QA model
+    if (score < 0.81):
         return {"response": "UNKNOWN", "followup_question:":[]}
     else:
         chain = RetrievalQA(combine_documents_chain=qa_chain, retriever=index.as_retriever())
