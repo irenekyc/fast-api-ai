@@ -23,14 +23,17 @@ def create_pinecone_index():
     #Load pdf
     documents = PyPDFLoader('testing-data-v5.pdf').load()
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=200)
     doc_texts = text_splitter.split_documents(documents=documents)
+    print(doc_texts)
 
     # if the index already exists, update it
-    index = Pinecone.from_existing_index(index_name, embedding=embeddings)
+    # index = Pinecone.from_existing_index(index_name, embedding=embeddings)
     
-    index.add_texts([d.page_content for d in doc_texts])
+    # index.add_texts([d.page_content for d in doc_texts])
 
     # create index
-    # Pinecone.from_texts([d.page_content for d in doc_texts], embedding=embeddings, index_name=index_name)
+    Pinecone.from_texts([d.page_content for d in doc_texts], embedding=embeddings, index_name=index_name)
+    
+
  

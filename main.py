@@ -38,7 +38,7 @@ EMBEDDING_MODEL = 'text-embedding-ada-002'
 embeddings = OpenAIEmbeddings(openai_api_key=os.environ.get("OPEN_AI_API"), model=EMBEDDING_MODEL)
 pinecone.init(api_key=os.environ.get("PINECONE_API"), environment='us-central1-gcp')
 index_name = 'manifest-index'
-llm = OpenAI(model_name="text-davinci-003", temperature=0)
+llm = OpenAI(model_name="gpt-3.5-turbo", temperature=0)
 qa_chain = load_qa_chain(llm, chain_type="stuff",
                                         prompt=PROMPT) 
 
