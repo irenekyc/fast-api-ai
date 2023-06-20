@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import openai
@@ -11,6 +11,12 @@ from langchain.embeddings import OpenAIEmbeddings # for creating embeddings
 from langchain.vectorstores import Pinecone
 import pinecone
 import json
+import pandas
+import shutil
+from pathlib import Path
+from tempfile import NamedTemporaryFile
+from update_index import update_index
+
 
 load_dotenv()
 openai.api_key = os.environ.get("OPEN_AI_API") 
@@ -20,6 +26,7 @@ class Version5Prompt(BaseModel):
     prompt: str
     userEmployer: str
     isFollowup:bool
+
     
 # Create Prompt template
 prompt_template = """
@@ -54,21 +61,52 @@ app.add_middleware(
 def home():
     return {"message":"Welcome"}
 
+@app.post("/uploadQnA/{index_name}")
+def upload_question_and_answers(upload_file: UploadFile):
+    try:
+        suffix = Path(upload_file.filename).suffix
+        with NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+            shutil.copyfileobj(upload_file.file, tmp)
+            tmp_path = Path(tmp.name)
+    finally:
+        upload_file.file.close()
+    df = pandas.read_excel(tmp_path)
+    df['q&a'] = df['Question'] + " " + df['Answer']
+    qna_list = df['q&a'].tolist()
+    
+    update_index(qna_list, index_name)
+    return {
+        "numOfQuestions": len(qna_list)
+    }
+    
+
+
 @app.post('/getKatieResponse')
 def get_katie_response(prompt: Version5Prompt):
     index = Pinecone.from_existing_index(index_name, embedding=embeddings)
     res = index.similarity_search_with_score(query=prompt.prompt, k=1)
     score = res[0][1]
+    print(res)   
+    
+    http_response = {
+        "response" :"",
+        "followup_question":[]
+    } 
+    
+    # Only when score is greater than 0.82, we will use the retrieval QA model
+    if (score < 0.82):
+        http_response = {
+            "response" :'UNKNOWN',
+            "followup_question" : []
+        }
 
-    print(res)
-    # Only when score is greater than 0.81, we will use the retrieval QA model
-    if (score < 0.81):
-        return {"response": "UNKNOWN", "followup_question:":[]}
     else:
         chain = RetrievalQA(combine_documents_chain=qa_chain, retriever=index.as_retriever())
         response = chain.run(input_documents=res, query=prompt.prompt, verbose=True)
-        print(response)
-        return {
+        # TODO: Collect questions and answers, store them to googlesheets for review
+        http_response = {
             "response": json.loads(response)["question1"],
             "followup_question":  [] if prompt.isFollowup else json.loads(response)["question2"]
                 }
+    
+    return http_response
